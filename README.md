@@ -1,90 +1,166 @@
-# 0x00. AirBnB clone - The console
-For this project, we expect you to look at these concepts:
+<img src="https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/fd/ac/b4/fdacb4f9-4c73-1ca6-5595-ef18f821ee62/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.png">
+<img src="https://image.shutterstock.com/image-illustration/clone-icon-illustration-creative-sign-260nw-1497218057.jpg">
 
-Python packages
-AirBnB clone
+# 0x00 AirBnB clone - The console
 
-## Background Context
-![Logo](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230209T064018Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=1c72167006b6bcc55894d9e968a640658bacbf651cb9fea5f419859ba80473c8)
-Welcome to the AirBnB clone project!
+In this directory you will find a implementation of a AirBnB clone.
+In this first step is implemented the Console. Commands for create, update, destroy, show and manage diferent classes and attributes for the items that the app will be offer and for the users.
 
-First step: Write a command interpreter to manage your AirBnB objects.
-This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
+### The console ###
+* create your data model
+* manage (create, update, destroy, etc) objects via a console / command interpreter
+* store and persist objects to a file (JSON file)
+The first piece is to manipulate a powerful storage system. This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This means: from your console code (the command interpreter itself) and from the front-end and RestAPI you will build later, you won’t have to pay attention (take care) of how your objects are stored.
+This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
+The console will be a tool to validate this storage engine
 
-Each task is linked and will help you to:
+### Command interpreter ###
 
-put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of your future instances
-create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
-create all classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
-create the first abstracted storage engine of the project: File storage.
-create all unittests to validate all our classes and storage engine
+Our command interpreter looks like a mini shell and allow us manage the objects of our project:
 
-What’s a command interpreter?
-Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
+* Create a new object (ex: a new User or a new Place)
+* Retrieve an object from a file, a database etc…
+* Do operations on objects (count, compute stats, etc…)
+* Update attributes of an object
+* Destroy an object
 
-Create a new object (ex: a new User or a new Place)
-Retrieve an object from a file, a database etc…
-Do operations on objects (count, compute stats, etc…)
-Update attributes of an object
-Destroy an object
-## Resources
-Read or watch:
+### Objectives of project ###
 
-cmd module
-cmd module in depth
-packages concept page
-uuid module
-datetime
-unittest module
-args/kwargs
-Python test cheatsheet
-cmd module wiki page
-python unittest
-## Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-## General
-How to create a Python package
-How to create a command interpreter in Python using the cmd module
-What is Unit testing and how to implement it in a large project
-How to serialize and deserialize a Class
-How to write and read a JSON file
-How to manage datetime
-What is an UUID
-What is *args and how to use it
-What is **kwargs and how to use it
-How to handle named arguments in a function
-## Requirements Python Scripts
-Python Scripts
-Allowed editors: vi, vim, emacs
-All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
-All your files should end with a new line
-The first line of all your files should be exactly #!/usr/bin/python3
-A README.md file, at the root of the folder of the project, is mandatory
-Your code should use the pycodestyle (version 2.8.*)
-All your files must be executable
-The length of your files will be tested using wc
-All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
+* How to create a Python package
+* How to create a command interpreter in Python using the cmd module
+* What is Unit testing and how to implement it in a large project
+* How to serialize and deserialize a Class
+* How to write and read a JSON file
+* How to manage datetime
+* What is an UUID
+* What is *args and how to use it
+* What is **kwargs and how to use it
+* How to handle named arguments in a function
+
+### Content of Directory ###
+* Models Folder: Classes of the project. BaseModel is the parent Class. The other classes (amenity, city, place, review, state, user) inherit from BaseModel and specify others attributes for itselfs.
+* Tests Folder : Unittests for the project
+* AUTHORS: Information about the authors
+* console.py: Eceutable file for the console
+* file.json: JSON file with all information of instances
+
+---
+
+## Table of Contents
+
+- [Examples and Usage](#ExamplesandUsage)
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [Team](#team)
+- [Support](#support)
+- [License](#license)
 
 
-## Python Unit Tests
-Allowed editors: vi, vim, emacs
-All your files should end with a new line
-All your test files should be inside a folder tests
-You have to use the unittest module
-All your test files should be python files (extension: .py)
-All your test files and folders should start by test_
-Your file organization in the tests folder should be the same as your project
-e.g., For models/base_model.py, unit tests must be in: tests/test_models/test_base_model.py
-e.g., For models/user.py, unit tests must be in: tests/test_models/test_user.py
-All your tests should be executed by using this command: python3 -m unittest discover tests
-You can also test file by file by using this command: python3 -m unittest tests/test_models/test_base_model.py
-All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-We strongly encourage you to work together on test cases, so that you don’t miss any edge case
-## Authors
+---
 
-- [@mosekyle](https://www.github.com/mosekyle)
+## Examples of Usage
+
+### Execution ###
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
+```
+### create ###
+Creat an instance and show us the id number
+```
+vagrant@vagrant-ubuntu-trusty-64:~/AirBnB_clone$ ./console.py 
+(hbnb) create BaseModel
+e37cf8df-351a-4df6-9d15-fd9331a5bfb2
+(hbnb) 
+```
+
+### Show ###
+Show the Class, object if the id is especified and its attributes
+```
+(hbnb) show BaseModel e37cf8df-351a-4df6-9d15-fd9331a5bfb2
+[BaseModel] (e37cf8df-351a-4df6-9d15-fd9331a5bfb2) {'id': 'e37cf8df-351a-4df6-9d15-fd9331a5bfb2', 'created_at': datetime.datetime(2020, 7, 1, 18, 50, 15, 695895), 'updated_at': datetime.datetime(2020, 7, 1, 18, 50, 15, 695945)}
+(hbnb) 
+```
+### all ###
+shows all the instances
+```
+(hbnb) all BaseModel
+["[BaseModel] (5c8ebd08-a708-4823-b9a2-29d58b87c063) {'id': '5c8ebd08-a708-4823-b9a2-29d58b87c063', 'created_at': datetime.datetime(2020, 7, 1, 5, 4, 54, 926171), 'updated_at': datetime.datetime(2020, 7, 1, 5, 4, 54, 926179)}", "[BaseModel] (e576e179-8bb6-4229-a8be-90585b0c1d01) {'id': 'e576e179-8bb6-4229-a8be-90585b0c1d01', 'created_at': datetime.datetime(2020, 7, 1, 5, 5, 38, 896687), 'updated_at': datetime.datetime(2020, 7, 1, 5, 5, 38, 896706)}", "[BaseModel] (0763761f-4534-4a02-8097-79a4ab935ecb) {'id': '0763761f-4534-4a02-8097-79a4ab935ecb', 'created_at': datetime.datetime(2020, 7, 1, 4, 8, 48, 451468), 'updated_at': datetime.datetime(2020, 7, 1, 4, 8, 48, 451881)}", "[BaseModel] (f794d1ba-6688-42b8-ae08-0b307125643a) {'id': 'f794d1ba-6688-42b8-ae08-0b307125643a', 'created_at': datetime.datetime(2020, 7, 1, 5, 4, 54, 922410), 'updated_at': datetime.datetime(2020, 7, 1, 5, 4, 54, 923071)}", "[BaseModel] (ef9b217c-b58c-4d5f-b797-0dbbed80dedd) {'id': 'ef9b217c-b58c-4d5f-b797-0dbbed80dedd', 'created_at': datetime.datetime(2020, 7, 1, 5, 4, 54, 930489), 'updated_at': datetime.datetime(2020, 7, 1, 5, 4, 54, 930504)}", "[BaseModel] (e37cf8df-351a-4df6-9d15-fd9331a5bfb2) {'id': 'e37cf8df-351a-4df6-9d15-fd9331a5bfb2', 'created_at': datetime.datetime(2020, 7, 1, 18, 50, 15, 695895), 'updated_at': datetime.datetime(2020, 7, 1, 18, 50, 15, 695945)}", "[BaseModel] (82f3d1a2-c28d-4327-be5f-0bceb29b0eb9) {'id': '82f3d1a2-c28d-4327-be5f-0bceb29b0eb9', 'created_at': datetime.datetime(2020, 7, 1, 5, 5, 38, 888932), 'updated_at': datetime.datetime(2020, 7, 1, 5, 5, 38, 889340)}", "[BaseModel] (e029daa8-9083-4097-b2bd-a66fe4895532) {'id': 'e029daa8-9083-4097-b2bd-a66fe4895532', 'created_at': datetime.datetime(2020, 7, 1, 5, 5, 38, 892554), 'updated_at': datetime.datetime(2020, 7, 1, 5, 5, 38, 892561)}"
+(hbnb) 
+```
+### Destroy ###
+Delete an instance
+```
+(hbnb) destroy BaseModel e37cf8df-351a-4df6-9d15-fd9331a5bfb2
+(hbnb) show BaseModel e37cf8df-351a-4df6-9d15-fd9331a5bfb2
+** no instance found **
+(hbnb) 
+```
+---
+
+## Installation
+
+* Clone the repository. git clone https://github.com/mosekyle/AirBnB_clone.git
+* Open the /AirBnB_clone directory and execute console.py
+
+### Setup
+
+* You need Python interpreter.
+IMPORTANT: The project was created in UBUNTU 14.04.3 LTS and Python 3.4.3.
+
+---
+
+## Documentation 
+
+<a href="https://intranet.hbtn.io/rltoken/Fx9HXIjmGzbmET4ylYg2Rw">`cmd module`</a><br>
+<a href="https://intranet.hbtn.io/rltoken/jKl9WFpKA-fPt7_guv9_3Q">`packages`</a><br>
+<a href="https://intranet.hbtn.io/rltoken/eaQ6aELbdqb0WmPddhD00g">`uuid module`</a><br>
+<a href="https://intranet.hbtn.io/rltoken/_ySDcgtfrwLkTyQzYHTH0Q">`datetime`</a><br>
+<a href="https://intranet.hbtn.io/rltoken/QX7d4D__xhOJIGIWZBp39g">`unittest module`</a><br>
+<a href="https://intranet.hbtn.io/rltoken/jQd3P_uSO0FeU6jlN-z5mg">`args/kwargs`</a><br>
+<a href="https://intranet.hbtn.io/rltoken/WPlydsqB0PG0uVcixemv9A">`Python test cheatsheet`</a><br>
+---
+
+## Contributing
+
+> To get started...
+
+### Step 1
+
+- **Option 1**
+    - 🍴 Fork this repo!
+
+- **Option 2**
+    - 👯 Clone this repo to your local machine using 
+
+### Step 2
+
+- **HACK AWAY!** 
+
+### Step 3
+
+- 🔃 Create a new pull request using. 
+---
+
+## Team
+
+<a href="https://github.com/mosekyle">`mosekyle`</a>
+<a href="https://github.com/Bellosaheed">`Bellosaheed`</a>
+
+
+---
+
+
+## License
+
+Free Source Code
